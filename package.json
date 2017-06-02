@@ -10,7 +10,8 @@
 		"build": "npm run clean && npm run tsc --",
 		"lint": "tslint app/**/*.ts",
 		"watch": "npm run build -- -w",
-    	"start:ios": "npm run build && concurrently -r 'npm run watch' 'react-native run-ios'"
+    	"start:ios": "npm run build && concurrently -r 'npm run watch' 'react-native run-ios'",
+		"start:android": "npm run build && concurrently -r 'npm run watch' 'react-native run-android'"
 	},
 	"dependencies": {
 		"native-base": "^2.1.4",

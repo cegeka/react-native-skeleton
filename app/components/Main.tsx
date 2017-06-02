@@ -1,7 +1,9 @@
-import React, { Component } from 'react';
-import { Container, Header, Title, Content, Text, Footer, FooterTab, Button, Left, Right, Body, Icon } from 'native-base';
+import React, { Component } from 'react'
+import { Container, Header, Title, Content, Text, Footer, FooterTab, Button, Left, Right, Body, Icon } from 'native-base'
 
-export default class Main extends Component {
+export interface Props {}
+export interface State {}
+export default class Main extends Component<Props, State> {
   render() {
     return (
       <Container>
