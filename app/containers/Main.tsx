@@ -1,15 +1,34 @@
 import React, { Component } from 'react'
 import { Container, Header, Title, Content, Text, Footer, FooterTab, Button, Left, Right, Body, Icon } from 'native-base'
+import { View } from 'react-native'
+import { Route } from 'react-router-native'
+import Home from '../containers/Home'
+import Info from '../containers/Info'
+import Menu from '../components/Menu'
 
 export interface Props {}
-export interface State {}
+export interface State {
+  menu: {
+    open: boolean
+  }
+}
 export default class Main extends Component<Props, State> {
+
+  constructor(props) {
+    super(props)
+    this.state = {
+      menu: {
+        open: true
+      }
+    }
+  }
+
   render() {
     return (
       <Container>
         <Header>
           <Left>
-            <Button transparent>
+            <Button transparent onPress={() => this.toggleMenu()}>
                 <Icon name='menu'/>
             </Button>
           </Left>
@@ -18,8 +37,10 @@ export default class Main extends Component<Props, State> {
             </Body>
           <Right/>
         </Header>
+        <Menu open={this.state.menu.open}/>
         <Content>
-          <Text>Your main content goes here</Text>
+          <Route exact path='/' component={Home}/>
+          <Route path='/info' component={Info}/>
         </Content>
         <Footer>
           <FooterTab>
@@ -29,6 +50,14 @@ export default class Main extends Component<Props, State> {
           </FooterTab>
         </Footer>
       </Container>
-    );
+    )
+  }
+
+  toggleMenu() {
+    this.setState({
+      menu: {
+        open: !this.state.menu.open
+      }
+    })
   }
 }
