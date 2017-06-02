@@ -39,6 +39,9 @@ yarn-error.log
 # TypeScript
 artifacts/
 
+# Jest
+coverage/
+
 # BUCK
 buck-out/
 \.buckd/
